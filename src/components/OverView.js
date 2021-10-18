@@ -1,15 +1,26 @@
 import { Avatar } from "@chakra-ui/avatar";
+// eslint-disable-next-line
 import { Button, IconButton } from "@chakra-ui/button";
 import { AiOutlinePlus } from "react-icons/ai";
 import { Img } from "@chakra-ui/image";
 import { Box, Flex, Text } from "@chakra-ui/layout";
 import { Select } from "@chakra-ui/select";
 import React, { Component } from "react";
+// eslint-disable-next-line
+import AddProject from './ProjectCreation/AddProject';
+// eslint-disable-next-line
+import AddProjectResponsive from './ProjectCreation/AddProjectResponsive';
 
 export default class OverView extends Component {
   constructor(x) {
     super(x);
-    this.state = {};
+    this.state = {showComponent: false,};
+    this._onButtonClick = this._onButtonClick.bind(this);
+  }
+  _onButtonClick() {
+    this.setState({
+      showComponent: true,
+    });
   }
   render() {
     return (
@@ -80,9 +91,20 @@ export default class OverView extends Component {
             variant="ghost"
           >
             <AiOutlinePlus />
-            <Text mx="2">Add Project</Text>
+            <Text mx="2" onClick={this._onButtonClick}>Add Project 
+</Text>
           </Button>
+          {/* {this.state.showComponent ?
+                           <AddProject />  :
+           null
+        } */}
+                  {/* {this.state.showComponent ?
+                           <AddProjectResponsive />  :
+           null
+        } */}
+        
         </Box>
+
       </>
     );
   }
